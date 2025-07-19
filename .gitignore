@@ -7,6 +7,8 @@
 
 # 환경파일
 .env
+application.properties
+application.yml
 
 .gradle
 build/
