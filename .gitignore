@@ -1,3 +1,13 @@
+# 로그 파일
+*.log
+
+# 테스트 리포트
+/reports/
+/build/reports/
+
+# 환경파일
+.env
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar

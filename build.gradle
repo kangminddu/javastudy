@@ -2,20 +2,30 @@ plugins {
     id 'org.springframework.boot' version '2.7.18'
     id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
-    id 'eclipse'
 }
 
 group = 'com.jojoldu.book'
 version = '1.0-SNAPSHOT'
-sourceCompatibility = '1.8'  // 또는 17, 21 등 JDK에 따라 조정
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    // 웹 앱
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 롬복
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // 테스트
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // JUnit5 포함됨
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.21.0'       // ✅ 최신 selenium
 }
 
 test {
