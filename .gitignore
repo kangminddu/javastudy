@@ -51,4 +51,4 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Storegit
+.DS_Storegit.idea/
