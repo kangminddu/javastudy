@@ -1,6 +1,7 @@
+// 이 프로젝트의 플러그인 의존성 관리를 위한 설정
 plugins {
     id 'org.springframework.boot' version '2.7.18'
-    id 'io.spring.dependency-management' version '1.1.4'
+    id 'io.spring.dependency-management' version '1.1.4' // 스프링 부트의 의존성들을 관리해 주는 플러그인
     id 'java'
 }
 
@@ -8,10 +9,11 @@ group = 'com.jojoldu.book'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '17'
 
+// 각종 의존성 (라이브러리)들을 어떤 원격 저장소에서 받을지를 정함
 repositories {
     mavenCentral()
 }
-
+// 프로젝트 개발에 필요한 의존성들을 선언하는 곳
 dependencies {
     // 웹 앱
     implementation 'org.springframework.boot:spring-boot-starter-web'

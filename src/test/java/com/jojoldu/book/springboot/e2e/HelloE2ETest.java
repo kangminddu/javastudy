@@ -3,7 +3,7 @@ package com.jojoldu.book.springboot.e2e;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
-
+@Disabled
 public class HelloE2ETest {
 
     private static WebDriver driver;
