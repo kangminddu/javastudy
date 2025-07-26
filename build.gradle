@@ -1,35 +1,43 @@
-// 이 프로젝트의 플러그인 의존성 관리를 위한 설정
+// 이 프로젝트의 플러그인 설정
 plugins {
     id 'org.springframework.boot' version '2.7.18'
-    id 'io.spring.dependency-management' version '1.1.4' // 스프링 부트의 의존성들을 관리해 주는 플러그인
+    id 'io.spring.dependency-management' version '1.1.4' // 스프링 부트 의존성 자동 관리
     id 'java'
 }
 
+// 프로젝트 그룹 및 버전 정보
 group = 'com.jojoldu.book'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '17'
 
-// 각종 의존성 (라이브러리)들을 어떤 원격 저장소에서 받을지를 정함
+// 외부 의존성 받을 저장소
 repositories {
     mavenCentral()
 }
-// 프로젝트 개발에 필요한 의존성들을 선언하는 곳
+
+// 필요한 의존성 선언
 dependencies {
-    // 웹 앱
+    // Spring Web (REST API, MVC 등)
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // 롬복
+    // Spring Data JPA + H2 Database
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+
+    // Lombok (컴파일 시만 필요)
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    // 테스트
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // JUnit5 포함됨
-    testImplementation 'org.seleniumhq.selenium:selenium-java:4.21.0'       // ✅ 최신 selenium
+    // 테스트 관련 (JUnit 5 포함)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Selenium 브라우저 자동화 테스트 도구
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
 }
 
+// JUnit 5 테스트 플랫폼 사용
 test {
     useJUnitPlatform()
 }
